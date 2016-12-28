@@ -92,7 +92,7 @@ var ViewModel = function() {
                     var panorama = new google.maps.StreetViewPanorama(
                         document.getElementById('pano'), panoramaOptions);
                 } else {
-                    infoWindow.setContent('<div>' + marker.title + '</div>' +
+                    infoWindow.setContent('<div>' + marker.location + '</div>' +
                         '<div>No Street View Found</div>');
                 }
             }
