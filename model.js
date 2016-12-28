@@ -81,7 +81,7 @@ var ViewModel = function() {
                     var nearStreetViewLocation = data.location.latLng;
                     var heading = google.maps.geometry.spherical.computeHeading(
                         nearStreetViewLocation, marker.position);
-                    infoWindow.setContent('<div>' + marker.title + '</div><div id="pano"></div>');
+                    infoWindow.setContent('<div id="pano"></div>');
                     var panoramaOptions = {
                         position: nearStreetViewLocation,
                         pov: {
