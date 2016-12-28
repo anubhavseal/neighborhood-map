@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.1/knockout-min.js"></script>
+    <style type="text/css">
+     html, body { height: 100%; margin: 0; padding: 0; }
+     .container,.row{height: 100%;}
+     #map { height: 100%; }
+   </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Neighbour Hood Map</h3>
+
+                <input type="text" class="form-control">
+                <hr>
+                <ul class="list-group" data-bind="foreach:locationList">
+                    <li class="list-group-item" data-bind="text:title, click:$parent.generateMarker"></li>
+                </ul>
+                <p data-bind="text:currentLocation().latitude"></p>
+            </div>
+            <div id="map" class="col-md-9" >
+
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jQuery.js"></script>
+    <script type="text/javascript">
+        var map;
+        var marker;
+        var infoWindow;
+        var streetView;
+        var position=$('#map');
+        function initMap()
+        {
+             map = new google.maps.Map(position[0],{
+                center: {lat: 40.74135, lng: -73.99802},
+                zoom: 14
+            });
+        }
+    </script>
+    <script async defer
+     src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyC9RY3tq9UQ-1Gn1x91NakpfNK4z3OnHZU&callback=initMap">
+   </script>
+   <script src="js/model.js"></script>
+</body>
+</html>
