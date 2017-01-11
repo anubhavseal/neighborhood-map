@@ -7,7 +7,7 @@ A Single Page Application that helps user Find Near By Restaurants And Get Stree
 ###Installation
 
 1. Download the GitHub zip file or clone the repository onto your local workstation:
-       - Zip File https://github.com/anubhavseal/neighborhood-map/archive/neighborhood-map.zip
+       - Zip File  https://github.com/anubhavseal/neighborhood-map/archive/master.zip
        - Git Clone https://github.com/anubhavseal/neighborhood-map.git
        
 2. Open a browser window and navigate to the map.html file in your application’s directory
