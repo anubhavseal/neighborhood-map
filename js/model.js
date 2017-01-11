@@ -50,6 +50,7 @@
 
 
 
+//Creating a Location Object
 
         var Location = function(location) {
             var self = this;
@@ -71,6 +72,8 @@
                 self.infoWindow.setContent(location.title);
             });
         };
+
+//Creationg a restaurant Object
 
         var restaurant = function() {
             var name;
@@ -101,6 +104,7 @@
             });
 
             this.filter = ko.observable("");
+                //Used for filterning Markers and List
             this.filteredItems = ko.computed(function() {
                 var filter = this.filter().toLowerCase();
                 if (!filter) {
@@ -125,7 +129,7 @@
                 }
             }, this);
 
-
+        //generate Marker
 
             this.generateMarker = function(clickedLocation) {
                 for (var i = 0; i < self.locationList().length; i++) {
@@ -148,6 +152,7 @@
                 self.getNearByRestaurants(clickedLocation);
             };
 
+        //Getting StreetView        
             this.generateStreetView = function(clickedLocation) {
                 streetView = new google.maps.StreetViewService();
                 var radius = 50;
@@ -174,6 +179,7 @@
                 streetView.getPanoramaByLocation(clickedLocation.marker.position, radius, getStreetView);
             };
 
+           //Fetching the retaurant data
             this.getNearByRestaurants = function(clickedLocation) {
                 self.restaurantList.removeAll();
                 $.ajax({
