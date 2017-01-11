@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <style type="text/css">
+     html, body { height: 100%; margin: 0; padding: 0; }
+     .container,.row{height: 100%;}
+     #map { height: 100%; }
+     #pano {
+      width: 200px;
+      height: 200px;
+    }
+   </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Neighbour Hood Map</h3>
+
+                <input type="text" class="form-control" data-bind="value:filter, valueUpdate: 'afterkeydown'">
+                <hr>
+                <ul class="list-group" data-bind="foreach:filteredItems">
+                    <li class="list-group-item" data-bind="text:title, click:$parent.generateMarker"></li>
+                </ul>
+                <span>Nearby Restaurants</span>
+                <ul class="list-group" data-bind="foreach:restaurantList" id="restaurantList">
+                    <a data-bind="attr:{href:url}" target="_blank"><li class="list-group-item" data-bind="text:name"></li></a>
+                </ul>
+            </div>
+            <div id="map" class="col-md-9" >
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.1/knockout-min.js"></script>
+    <script src="js/jQuery.js"></script>
+    <script type="text/javascript">
+        var position=$('#map');
+        function initMap()
+        {
+             map = new google.maps.Map(position[0],{
+                center: {lat: 22.5851477, lng: 88.34680530000001},
+                zoom: 14
+            });
+        }
+    </script>
+    <script
+     src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyC9RY3tq9UQ-1Gn1x91NakpfNK4z3OnHZU&callback=initMap"></script>
+     <script src="js/model.js"></script>
+   </body>
+</html>
