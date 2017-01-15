@@ -141,14 +141,13 @@
                     lng: clickedLocation.longitude()
                 }
                 map.setCenter(position);
-                self.getNearByRestaurants(clickedLocation);
-                //clickedLocation.infoWindow.open(map, clickedLocation.marker);
+                clickedLocation.infoWindow.open(map, clickedLocation.marker);
                 //self.generateStreetView(clickedLocation);
-                //clickedLocation.marker.addListener('click', function() {
-                    //clickedLocation.infoWindow.open(map, clickedLocation.marker);
+                clickedLocation.marker.addListener('click', function() {
+                    clickedLocation.infoWindow.open(map, clickedLocation.marker);
                     //self.generateStreetView(clickedLocation);
-                    //self.getNearByRestaurants(clickedLocation);
-                //});
+                    self.getNearByRestaurants(clickedLocation);
+                });
 
             };
 
@@ -196,15 +195,12 @@
                             resto.setName(index.restaurant.name);
                             resto.setUrl(index.restaurant.url);
                             self.restaurantList.push(resto);
-                            clickedLocation.infoWindow.setContent('<p>' + index.restaurant.name + '</p>');
-                            //clickedLocation.infoWindow.setContent(contentString);
-                            clickedLocation.infoWindow.open(map, clickedLocation.marker);
                         });
                     }
                 }).error(function(e){
                     $('#restaurantList').text("Sorry Cannot Find Right Now");
                 });
-
+                clickedLocation.infoWindow.setContent(contentString);
             };
         };
 
