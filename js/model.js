@@ -195,12 +195,14 @@
                             resto.setName(index.restaurant.name);
                             resto.setUrl(index.restaurant.url);
                             self.restaurantList.push(resto);
+                            clickedLocation.infoWindow.setContent('<p>' + index.restaurant.name + '</p>');
+                            //clickedLocation.infoWindow.setContent(contentString);
+                            clickedLocation.infoWindow.open(map, clickedLocation.marker);
                         });
                     }
                 }).error(function(e){
                     $('#restaurantList').text("Sorry Cannot Find Right Now");
                 });
-                clickedLocation.infoWindow.setContent(contentString);
             };
         };
 
