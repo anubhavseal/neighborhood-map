@@ -48,9 +48,9 @@
             }
         ];
 
-        var contentString = '<ul class="list-group" data-bind="foreach:restaurantList" id="restaurantList">'+
-                    '<a data-bind="attr:{href:url}" target="_blank"><li class="list-group-item" data-bind="text:name"></li></a>'+
-                '</ul>'
+        //var contentString = '<ul class="list-group" data-bind="foreach:restaurantList" id="restaurantList">'+
+          ///          '<a data-bind="attr:{href:url}" target="_blank"><li class="list-group-item" data-bind="text:name"></li></a>'+
+           //     '</ul>'
 
 
         var Location = function(location) {
@@ -179,6 +179,7 @@
 
             this.getNearByRestaurants = function(clickedLocation) {
                 self.restaurantList.removeAll();
+                var contentString = '<h4>Nearby Restaurants</h4>';
                 $.ajax({
                     "url": "https://developers.zomato.com/api/v2.1/geocode",
                     "headers": {
@@ -192,11 +193,12 @@
                     "success": function(response) {
                         response.nearby_restaurants.forEach(function(index) {
                             var resto = new restaurant();
+
                             resto.setName(index.restaurant.name);
                             resto.setUrl(index.restaurant.url);
                             self.restaurantList.push(resto);
-                            clickedLocation.infoWindow.setContent('<p>' + index.restaurant.name + '</p>');
-                            //clickedLocation.infoWindow.setContent(contentString);
+                            contentString +=  '<a href="' + index.restaurant.url + '">' + index.restaurant.name + '</a><br>';
+                            clickedLocation.infoWindow.setContent(contentString);
                             clickedLocation.infoWindow.open(map, clickedLocation.marker);
                         });
                     }

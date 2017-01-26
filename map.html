@@ -4,11 +4,13 @@
 <head>
     <title></title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
     <style type="text/css">
      html, body { height: 100%; margin: 0; padding: 0; }
      .container,.row{height: 100%;}
-     #map { height: 100%; }
+     #map { height: 100%;
+        max-width: 100%;
+     }
      #pano {
       width: 200px;
       height: 200px;
@@ -18,7 +20,7 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 col-xs-12">
                 <h3>Neighbour Hood Map</h3>
 
                 <input type="text" class="form-control" data-bind="value:filter, valueUpdate: 'afterkeydown'">
@@ -31,7 +33,7 @@
                     <a data-bind="attr:{href:url}" target="_blank"><li class="list-group-item" data-bind="text:name"></li></a>
                 </ul>
             </div>
-            <div id="map" class="col-md-9" >
+            <div id="map" class="col-md-9 col-xs-12" >
 
             </div>
         </div>
@@ -50,7 +52,7 @@
         }
     </script>
     <script
-     src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyC9RY3tq9UQ-1Gn1x91NakpfNK4z3OnHZU&callback=initMap"></script>
+     src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyC9RY3tq9UQ-1Gn1x91NakpfNK4z3OnHZU&callback=initMap" async></script>
      <script src="js/model.js"></script>
    </body>
 </html>
