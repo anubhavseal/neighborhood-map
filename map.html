@@ -5,6 +5,7 @@
     <title></title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width initial-scale=1.0">
+
     <style type="text/css">
      html, body { height: 100%; margin: 0; padding: 0; }
      .container,.row{height: 100%;}
@@ -41,6 +42,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.1/knockout-min.js"></script>
     <script src="js/jQuery.js"></script>
+
     <script type="text/javascript">
         var position=$('#map');
         function initMap()
@@ -52,7 +54,7 @@
         }
     </script>
     <script
-     src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyC9RY3tq9UQ-1Gn1x91NakpfNK4z3OnHZU&callback=initMap" async></script>
-     <script src="js/model.js"></script>
+     src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyC9RY3tq9UQ-1Gn1x91NakpfNK4z3OnHZU&callback=initMap" async defer></script>
+     <script src="js/model.js" async defer></script>
    </body>
 </html>
