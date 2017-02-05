@@ -58,7 +58,7 @@
             this.title = ko.observable(location.title);
             this.latitude = ko.observable(location.location.lat);
             this.longitude = ko.observable(location.location.lng);
-            this.marker = new google.maps.Marker({
+                this.marker = new google.maps.Marker({
                 position: {
                     lat: this.latitude(),
                     lng: this.longitude()
@@ -97,7 +97,6 @@
             var self = this;
             this.locationList = ko.observableArray([]);
             this.restaurantList = ko.observableArray([]);
-
             locations.forEach(function(location) {
                 self.locationList.push(new Location(location));
             });
@@ -141,7 +140,7 @@
                     lng: clickedLocation.longitude()
                 }
                 map.setCenter(position);
-                clickedLocation.infoWindow.open(map, clickedLocation.marker);
+                //clickedLocation.infoWindow.open(map, clickedLocation.marker);
                 //self.generateStreetView(clickedLocation);
                 clickedLocation.marker.addListener('click', function() {
                     clickedLocation.infoWindow.open(map, clickedLocation.marker);
@@ -208,6 +207,6 @@
             };
         };
 
-        ko.applyBindings(new ViewModel());
+
 
 
