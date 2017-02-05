@@ -70,7 +70,16 @@
             this.marker.addListener('click', function() {
                 self.marker.setAnimation(google.maps.Animation.DROP);
                 self.infoWindow.open(map, self.marker);
-                self.infoWindow.setContent(location.title);
+                //self.infoWindow.setContent(location.title);
+                viewModel.getNearByRestaurants({
+                    latitude:function(){
+                                return self.latitude()
+                            },
+                    longitude: function(){
+                                return self.longitude()
+                            },
+                    infoWindow:self.infoWindow
+                });
             });
         };
 
@@ -140,10 +149,11 @@
                     lng: clickedLocation.longitude()
                 }
                 map.setCenter(position);
-                //clickedLocation.infoWindow.open(map, clickedLocation.marker);
+                clickedLocation.infoWindow.open(map, clickedLocation.marker);
                 //self.generateStreetView(clickedLocation);
+                self.getNearByRestaurants(clickedLocation)
                 clickedLocation.marker.addListener('click', function() {
-                    clickedLocation.infoWindow.open(map, clickedLocation.marker);
+                    //clickedLocation.infoWindow.open(map, clickedLocation.marker);
                     //self.generateStreetView(clickedLocation);
                     self.getNearByRestaurants(clickedLocation);
                 });
@@ -177,6 +187,7 @@
             };
 
             this.getNearByRestaurants = function(clickedLocation) {
+                console.log(clickedLocation);
                 self.restaurantList.removeAll();
                 var contentString = '<h4>Nearby Restaurants</h4>';
                 $.ajax({

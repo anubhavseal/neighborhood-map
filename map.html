@@ -43,13 +43,15 @@
     <script src="js/jQuery.js"></script>
     <script type="text/javascript">
         var position=$('#map');
+        var viewModel;
         function initMap()
         {
              map = new google.maps.Map(position[0],{
                 center: {lat: 22.5851477, lng: 88.34680530000001},
                 zoom: 14
             });
-             ko.applyBindings(new ViewModel());
+             viewModel = new ViewModel();
+             ko.applyBindings(viewModel);
         }
     </script>
     <script
