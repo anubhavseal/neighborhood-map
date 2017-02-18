@@ -54,13 +54,14 @@
              ko.applyBindings(viewModel);
         }
     </script>
-    <script
-     src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyC9RY3tq9UQ-1Gn1x91NakpfNK4z3OnHZU&callback=initMap" onerror="googleError()" async defer></script>
+
      <script src="js/model.js" defer></script>
      <script type="text/javascript">
          function googleError(){
-            position.html("<h1>5</h1>");
+            position.html("<h1>Sorry Try Later</h1>");
          }
      </script>
+     <script
+     src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyC9RY3tq9UQ-1Gn1x91NakpfNK4z3OnHZU&callback=initMap" onerror="googleError()" async defer></script>
    </body>
 </html>
